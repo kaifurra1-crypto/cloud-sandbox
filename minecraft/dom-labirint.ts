@@ -39,7 +39,9 @@ function победа() {
 }
 
 function проигрыш() {
+    player.execute("effect @s slowness 5 255 true")
     player.execute("summon tnt")
+    loops.pause(4000)
     player.execute("title @s title БУМ! Ты проиграл")
     player.teleport(positions.add(начало, pos(-3, 1, 5)))
 }
