@@ -54,13 +54,21 @@ player.onChat("go", function () {
     player.teleport(positions.add(начало, pos(1, 1, 1)))
 })
 
+// Каждый «постоянно» следит только за своим блоком,
+// так проверки идут одновременно и быстрее
 loops.forever(function () {
     if (blocks.testForBlock(TNT, pos(0, -1, 0))) {
         проигрыш()
     }
+})
+
+loops.forever(function () {
     if (blocks.testForBlock(EMERALD_BLOCK, pos(0, -1, 0))) {
         player.teleport(pos(-8, 5, -8))
     }
+})
+
+loops.forever(function () {
     if (blocks.testForBlock(GOLD_BLOCK, pos(0, -1, 0))) {
         победа()
     }
